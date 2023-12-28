@@ -1,8 +1,8 @@
-<!-- ORGANISATIONS -->
+<!-- MEETOURTEAM -->
 <div class="mt-80 mb-80 organisations-earth container">
     <div class="row">
         <div class="col-12">
-            <p class="header">Organisations working with living earth</p>
+            <p class="header">Meet our team</p>
         </div>
     </div>
     <div class="row">
@@ -14,10 +14,10 @@
                 </div>
             </div>
         </div> {% endcomment %}
-        {% for organisation in site.data.organisations %}
-            <div class="col-md-6 col-lg-3 col-6 mb-40">
+        {% for organisation in site.data.meetourteam %}
+            <div class="col-md-6 col-lg-4 col-6 mb-40">
                 <div class="organisations-earth-inner">
-                    <div class="organisations-img">
+                    <div class="meetourteam-img">
                         {%- if organisation.image -%}<a href="{{ organisation.url }}"><img src="{{ organisation.image }}" alt="{{ organisation.name }}"></a>{% endif %}
                     </div>
                     <div class="organisations-dsc">
@@ -29,4 +29,4 @@
         {% endfor %}
     </div>
 </div>
-<!-- /ORGANISATIONS -->
+<!-- /MEETOURTEAM -->

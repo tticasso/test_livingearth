@@ -1057,16 +1057,20 @@ h2 a, .common-title a {
 
 /* get-in-section-Start */
 .get-in-section-main {
-  background: linear-gradient(91.74deg, #1d2865 4.36%, #080f37 99.67%);
-  border-radius: 14px;
-  padding: 60px 90px;
+  background: linear-gradient(79deg, rgba(10, 72, 99, 0.35) 8.19%, #1D2865 62.71%), url("../../../assets/img/living-earth-tab.jpg"), lightgray 50% / cover no-repeat;
+  padding: 40px 90px;
   color: white;
   justify-content: space-between;
   display: flex;
   align-items: center;
 }
+
+.get-in-section-container {
+  width: 35%;
+}
 .get-in-section-dsc {
-  max-width: 65%;
+  max-width: 100%;
+  margin-bottom: 24px;
 }
 .get-in-section-dsc h3 {
   font-weight: 700;
@@ -1079,7 +1083,7 @@ h2 a, .common-title a {
   width: 202px;
   height: 50px;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: capitalize;
   outline: none;
   cursor: pointer;
@@ -1115,7 +1119,8 @@ h2 a, .common-title a {
   position: relative;
 }
 .dsc-about-inner {
-  margin-top: 125px;
+  margin-top: 80px;
+  margin-left: 97px;
   color: white;
 }
 .dsc-about-inner h3 {
@@ -1408,8 +1413,8 @@ h2 a, .common-title a {
 }
 .organisations-img {
   text-align: center;
-  min-height: 275px;
-  max-height: 275px;
+  min-height: 293px;
+  max-height: 293px;
   background-color: #f0f1f2;
   display: flex;
   justify-content: center;
@@ -2633,7 +2638,7 @@ h2 a, .common-title a {
   position: absolute;
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(to left, #0000, #000);
+  // background-image: linear-gradient(to left, #0000, #000);
   margin-left: -1px;
 }
 
@@ -2643,7 +2648,7 @@ h2 a, .common-title a {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0), #000);
+    // background-image: linear-gradient(0deg, rgba(0, 0, 0, 0), #000);
   }
   .country-subpage-search {
     width: 100%;
