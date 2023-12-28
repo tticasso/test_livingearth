@@ -1,0 +1,13 @@
+- id: "sessile_ref"
+  title: "Reference (benchmark) sessile oak states"
+  subtitle: ""
+  image: "/assets/img/wales/ecosystems/1_SessileOak.jpg"
+  button: "Read More"
+  url: "./sessile_ref/"
+
+- id: "sessile_mod"
+  title: "Modified sessile oak states"
+  subtitle: " "
+  image: "/assets/img/wales/ecosystems/16_SessileOakWithBluebells.jpg"
+  button: "Read More"
+  url: "./sessile_mod/"

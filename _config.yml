@@ -1,0 +1,25 @@
+title: LivingEarth
+author:
+  name: LivingEarth
+  email: your-email@domain.com
+description:
+show_excerpts: false
+
+# Date format
+# refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
+minima:
+  date_format: "%b %-d, %Y"
+
+  # generate social links in footer
+  social_links:
+    facebook: #
+    instagram: #
+    twitter: #
+    youtube: #
+
+# Build settings
+theme: minima
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

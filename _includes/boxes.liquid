@@ -1,0 +1,94 @@
+<!-- BOXES -->
+<section class="mt-100 mb-100 future-landscapes-main">
+    <div class="row">
+        <div class="col-12 mb-40">
+            {%- if include.heading -%}<h2 class="common-title">{{ include.heading }} {%- if include.more -%}<a href="{{ include.more }}">View all</a>{% endif %}</h2>{% endif %}
+            {%- if include.subheading -%}<p>{{ include.subheading }}</p>{% endif %}
+        </div>
+    </div>
+    {%- if include.data -%}
+        <div class="row">
+            {% comment %} Columns support {% endcomment %}
+            {% case include.cols %}
+                {% when "2" %}
+                    {% assign cols = "col-md-6" %}
+                {% when "3" %}
+                    {% assign cols = "col-md-4" %}
+                {% when "4" %}
+                    {% assign cols = "col-md-3" %}
+                {% else %}
+                    {% assign cols = "col-md-4" %}
+            {% endcase %}
+
+
+            {% if include.local == "true" %}
+                {% assign data = page[include.data] %}
+            {% else %}
+                {% comment %} Data subfolders support {% endcomment %}
+                {% assign array = include.data | split: '.' %}
+                {% assign arraysize = array | size %}
+                {% if arraysize > 1 %}
+                    {% assign data = site.data %}
+                    {% for entry in array %}
+                        {% assign temp = array[forloop.index0] %}
+                        {% assign data = data[temp] %}
+                    {% endfor %}
+                {% else %}
+                    {% assign data = site.data[include.data] %}
+                {% endif %}
+            {% endif %}
+
+            {% comment %} Exclude filters support {% endcomment %}
+            {% assign exclude = true %}
+            {%- if include.only -%}
+                {% assign filter = include.only | split: "," %}
+            {% endif %}
+
+            {% for box in data %}
+                {%- if filter and box.id -%}
+                    {% assign exclude = false %}
+                    {% for id in filter %}
+                        {%- if id == box.id -%}
+                            {% assign exclude = true %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+                {%- unless exclude == false -%}
+                    <div class="col-12 col-sm-6 {{ cols }}">
+                        {% assign target = "" %}
+                        {%- if box.newtab -%}
+                            {% assign target = "_blank" %}
+                        {% endif %}
+                        {% if include.local == "true" %}
+                            <img src="{{ box.image }}" alt="{{ box.title }}">
+                        {% else %}
+                            <a href="{{ box.url }}" target="{{ target }}"><img src="{{ box.image }}" alt="{{ box.title }}"></a>
+                        {% endif %}
+                        <div class="future-dsc">
+                            {% if include.local == "true" %}
+                                <div class="future-dsc-title">{{ box.title }}</div>
+                            {% else %}
+                                {%- if box.button -%}
+                                    <div class="future-dsc-title">{{ box.title }}</div>
+                                {% else %}
+                                    <a href="{{ box.url }}" target="{{ target }}">
+                                        <div class="future-dsc-title">{{ box.title }}</div>
+                                    </a>
+                                {% endif %}
+                            {% endif %}
+                            {%- if box.subtitle -%}<p>{{ box.subtitle }}</p>{% endif %}
+                            {%- if box.button -%}
+                                <p class="pt-2"><a href="{{ box.url }}" target="{{ target }}" class="learn-more-link">{{ box.button }}</a></p>
+                            {% endif %}
+                            {%- if box.external -%}
+                                <p style="white-space:normal;"><a class="future-dsc-external" href="{{ box.url }}" target="{{ target }}">{{ box.external }}</a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endunless %}
+            {% endfor %}
+        </div>
+    {% endif %}
+</section>
+<!-- /BOXES -->
